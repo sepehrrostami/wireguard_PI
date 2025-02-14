@@ -253,7 +253,7 @@ serverConfQuestions() {
 	# Generate random number within private ports range
 	RANDOM_PORT=$(shuf -i443-443 -n1)
 	SERVER_PORT='' 
- 	while (! echo "$SERVER_PORT" | grep -qE '^[0-9]+$') || [ "$SERVER_PORT" -gt 65535 ] || [ "$SERVER_PORT" -lt 65000 ]; do 
+ 	while (! echo "$SERVER_PORT" | grep -qE '^[0-9]+$') || [ "$SERVER_PORT" -gt 65535 ] || [ "$SERVER_PORT" -lt 1 ]; do 
  		read -rp "Server's WireGuard port [1-65535]: " -e -i "${RANDOM_PORT}" SERVER_PORT 
 	done
 
